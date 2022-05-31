@@ -11,21 +11,15 @@ def structure(text, shifts,namefn):
         answer += alphabet[index]    
     print(f"The {namefn} text is {answer}")
 
-def encrypt( text, shifts ):
-    structure(text,shifts,'encoded')
-        
-def decrypt( text, shifts ):
-    structure(text,shifts,'decoded')
-
 while True:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
     if direction == 'encode' or direction == 'decode':
         text = input("Type your message:\n").lower()
         shift = int(input("Type the shift number:\n"))
         if direction == "encode":
-            encrypt( text, shift )
+            structure(text,shift,'encoded')
         elif direction == "decode":
-            decrypt( text, shift )
+            structure(text,shift,'decoded')
 
         yn = input('Do you want to continue(y/n)').lower()
         if yn == 'n':
